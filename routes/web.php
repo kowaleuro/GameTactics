@@ -37,8 +37,14 @@ Route::group(['prefix' => 'nades'], function() {
     ]);
 
     Route::get('create', [
-        'uses'=>'NadeController@showNades',
+        'uses'=>'NadeController@nadeCreator',
         'as'=>'nades.createNades'
+
+    ]);
+
+    Route::post('create', [
+        'uses'=>'NadeController@createNade',
+        'as'=>'strats.createStrat'
 
     ]);
 

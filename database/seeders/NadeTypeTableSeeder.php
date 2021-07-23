@@ -15,9 +15,10 @@ class NadeTypeTableSeeder extends Seeder
     {
         $array = array('smokegrenade','molotov','flashgrenade','hegrenade');
 
+
         foreach ($array as $item){
             $nadeType = new \App\Models\NadeType([
-                    'nade_type_name' => $item
+                'nade_type_name' => $item
                 ]);
             $nadeType->save();
         }

@@ -12,4 +12,8 @@ class NadeType extends Model
     public $timestamps = false;
 
     use HasFactory;
+
+    public function nades(){
+        return $this->hasMany('App\Models\Nade');
+    }
 }

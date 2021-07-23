@@ -16,4 +16,10 @@ class Map extends Model
     public function tactic(){
         return $this->hasMany('App\Models\Tactic');
     }
+
+
+    public function nades(){
+        return $this->hasMany('App\Models\Nade');
+    }
+
 }

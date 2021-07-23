@@ -16,9 +16,10 @@ class CreateNadesTable extends Migration
         Schema::create('nades', function (Blueprint $table) {
             $table->id();
             $table->string('nade_name',50)->charset('utf8mb4');
-            $table->string('yt_url')->charset('utf8mb4')->default(null);
+            $table->text('nade_content');
+            $table->string('yt_url')->charset('utf8mb4')->nullable()->default(null);
             //$table->foreignId('user_id');
-            $table->Integer('nade_id');
+            $table->Integer('nade_type_id');
             $table->Integer('map_id');
             $table->timestamps();
         });

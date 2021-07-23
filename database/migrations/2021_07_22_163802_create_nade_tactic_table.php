@@ -16,6 +16,9 @@ class CreateNadeTacticTable extends Migration
         Schema::create('nade_tactic', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('nade_id');
+            $table->integer('tactic_id');
+
         });
     }
 
