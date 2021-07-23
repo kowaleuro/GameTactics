@@ -37,15 +37,13 @@ class NadeController extends Controller
         $nade = new Nade([
             'nade_name'=> $request->input('title'),
             'nade_content' => $request->input('content'),
-            'nade_type_id' => $request->input('nadeTypeId')
+            'nade_type_id' => $request->input('nadeTypeId'),
+            'yt_url' => $request->input('ytUrl')
         ]);
 
-        $url = $request->input('ytUrl');
         $tacticId = $request->input('tacticId');
-        if($url){
-            parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
-            $nade->yt_url = $my_array_of_vars;
-        }
+
+        //mutator!!!
 
         $map->nades()->save($nade);
 
@@ -53,8 +51,6 @@ class NadeController extends Controller
             $tactic = Tactic::where('id',$tacticId)->first();
             $tactic->nades()->attach($nade->id);
         }
-
-
 
         return redirect()->back()->with('info','Nade: '.$request->input('title').' was succesfully created');
     }

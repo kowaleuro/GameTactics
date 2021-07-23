@@ -23,4 +23,16 @@ class Nade extends Model
         return $this->belongsTo('App\Models\NadeType');
     }
 
+    public function setYtUrlAttribute($url){
+
+        if($url){
+            parse_str( parse_url( $url, PHP_URL_QUERY ),$var);
+            $this->attributes['yt_url'] = $var['v'];
+
+        }else{
+            $this->attributes['yt_url'] = null;
+        }
+
+    }
+
 }
