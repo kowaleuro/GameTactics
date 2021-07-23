@@ -1,9 +1,9 @@
 # GameTactics
 > Site when players can view and upload CS:GO: tactics and also nades required to this strategies
 ## Table of Contents
-
+* [General Info](#general-information)
 * [Technologies Used](#technologies-used)
-* [Features](#features)
+
 
 
 
@@ -18,6 +18,9 @@ This project is created in order to:
 
 
 
-## Features
-- creating game tactics
-- viewing tactics
+## Technologies Usued
+
+- laravel 8.5
+- PHP 7.4
+- mySQL
+- HTML 5
