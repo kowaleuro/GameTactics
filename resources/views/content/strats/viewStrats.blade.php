@@ -21,5 +21,10 @@
                 </div>
             </section>
         @endforeach
+            <div class="row">
+                <div class="col-12">
+                        {{ $tactics->links() }}
+                </div>
+            </div>
     </div>
 @endsection

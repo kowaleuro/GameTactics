@@ -39,7 +39,7 @@ class TacticController extends Controller
 
     public function show(){
 
-        $tactics = Tactic::orderBy('updated_at')->get();
+        $tactics = Tactic::orderBy('updated_at')->paginate(1);
         return view('content.strats.viewStrats',['tactics' => $tactics]);
     }
 
