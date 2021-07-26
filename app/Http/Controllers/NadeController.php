@@ -19,7 +19,7 @@ class NadeController extends Controller
         $maps = Map::orderby('map_name')->get();
 
         //tu powinno być że taktyki stworzone przez użytkownika, ale na razie wszystkie
-        $tactics = Tactic::orderby('tactic_name')->get();
+        $tactics = Tactic::all();
         return view('content.nades.createNades',['nades'=>$nades,'maps'=>$maps,'tactics'=>$tactics]);
     }
 

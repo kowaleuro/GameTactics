@@ -78,6 +78,11 @@ Route::group(['prefix' => 'strats'], function() {
 
     ]);
 
+    Route::get('/{id}',[
+        'uses' => 'TacticController@like',
+        'as' => 'strats.like'
+    ]);
+
 });
 
 

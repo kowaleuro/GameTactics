@@ -33,7 +33,13 @@
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-12">
+                <label for="inputDescription" class="col-1 col-form-label">Description</label>
+                <div class="col-4">
+                    <input type="text" name="description" class="form-control" id="inputDescription"  placeholder="Brief description of tactic">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-12">
                     <textarea name="content" class="form-control" id="tactics" rows="5">
                         Enter Tactic
                     </textarea>

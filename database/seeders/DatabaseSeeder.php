@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(MapTableSeeder::class);
         $this->call(NadeTypeTableSeeder::class);
+        $this->call(TacticTableSeeder::class);
+
     }
 }

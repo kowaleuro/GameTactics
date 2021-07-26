@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     @include('partials.alerts')
 
     @if(Session::has('info'))
@@ -45,10 +46,12 @@
             <div class="form-group row">
                 <label for="inputTactic" class="col-2 col-form-label">Attach to your tactic</label>
                 <div class="col-4">
-                    <select class="form-control" name="tacticId">
+                    <select class="form-control" name="tacticId" id ="attachToTactics">
                         <option value=""></option>
                         @foreach($tactics as $tactic)
-                            <option value="{{ $tactic->id }}">{{ $tactic->tactic_name }}</option>
+                            <option value="{{ $tactic ->id }}">
+                                {{$tactic ->tactic_name}}
+                            </option>
                         @endforeach
                     </select>
                 </div>
@@ -74,4 +77,6 @@
             </div>
         </form>
     </div>
+
+
 @endsection

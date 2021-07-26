@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
 use App\Models\Map;
 use App\Models\Tactic;
 use Illuminate\Http\Request;
@@ -22,13 +23,15 @@ class TacticController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'content' => 'required',
+            'description' => 'required'
         ]);
 
         $map = Map::where('id',$request->input('mapId'))->first();
         print_r($map);
         $tactic = new Tactic([
             'tactic_name'=> $request->input('title'),
-            'tactic_content' => $request->input('content'),
+            'tactic_description' => $request->input('description'),
+            'tactic_content' => $request->input('content')
 
         ]);
 
@@ -39,7 +42,7 @@ class TacticController extends Controller
 
     public function show(){
 
-        $tactics = Tactic::orderBy('updated_at')->paginate(1);
+        $tactics = Tactic::orderBy('updated_at')->with('likes','map','nades')->paginate(5);
         return view('content.strats.viewStrats',['tactics' => $tactics]);
     }
 
@@ -48,4 +51,13 @@ class TacticController extends Controller
         $tactic = Tactic::where('id',$id)->first();
         return view('content.strats.read',['tactic' => $tactic]);
     }
+
+    public function like($id){
+        $tactic = Tactic::where('id',$id)->first();
+        $like = new Like();
+        $tactic->likes()->save($like);
+        return redirect()->back();
+
+    }
+
 }
