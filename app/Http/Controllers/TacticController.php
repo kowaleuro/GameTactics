@@ -47,18 +47,18 @@ class TacticController extends Controller
 
         //$tactics = Tactic::orderBy('updated_at')->with('likes','map','nades')->paginate(5);
 
+        $maps = Map::orderBy('map_name')->get();
+
         $tactics = QueryBuilder::for(Tactic::class)
             //->with('likes')
-            ->with('map')
-            ->with('nades')
-            ->with('likes')
             ->withCount('likes')
             ->defaultSort('updated_at')
             ->allowedSorts('updated_at','likes_count')
-            ->allowedFilters(['id'])
-            ->paginate(1);
+            ->allowedFilters(['map_id'])
+            ->paginate(5)
+            ->appends(request()->query());
 
-        return view('content.strats.viewStrats',['tactics' => $tactics]);
+        return view('content.strats.viewStrats',['tactics' => $tactics, 'maps' => $maps]);
     }
 
     public function view($id){

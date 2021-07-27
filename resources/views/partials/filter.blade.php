@@ -16,7 +16,7 @@
                 <div class="p-2">
                     <div class="form-group">
                         <select class="form-control" name="sort">
-                            <option>
+                            <option value="">
                                 Sort by
                             </option>
 
@@ -34,6 +34,22 @@
                         </select>
                     </div>
                 </div>
+
+                <div class="p-2">
+                    <div class="form-group">
+                        <select class="form-control" name="filter[map_id]">
+                            <option value="">
+                                Map
+                            </option>
+                            @foreach($maps as $map)
+                                <option value="{{$map->id}}">
+                                    {{$map->map_name}}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
                 <div class="p-2">
                     <button type="submit" class="btn btn-secondary">Filter</button>
                 </div>

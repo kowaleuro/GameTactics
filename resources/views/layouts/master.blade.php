@@ -13,6 +13,7 @@
     <link href='http://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
     <script src="https://cdn.tiny.cloud/1/ww7536a0nxx7pcu28i8zivhnyrg77x3l8w1jyblabjy2s60b/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>tinymce.init({selector:'#tactics'});</script>
+    <link rel="stylesheet" href="{{asset('css/strats.css')}}">
 
 </head>
 <body>

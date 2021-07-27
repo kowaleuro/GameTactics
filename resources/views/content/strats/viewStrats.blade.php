@@ -11,7 +11,7 @@
     <div class="container">
         @foreach($tactics as $tactic)
             <section>
-                <div class="card">
+                <div class="card" id="stratBox">
                     <div class="header">
                         <div class="row">
                             <div class="col-md-3 col-lg-3 col-xl-3 d-none d-sm-block">
