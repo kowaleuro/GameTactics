@@ -21,12 +21,12 @@
                             <div class="col-md-6 col-lg-6 col-xl-6 col-12 col-sm-12">
                                 <h5 style="text-align: center">{{$tactic->tactic_name}}</h5>
                             </div>
-                            <div class="col-md-1 col-lg-2 col-xl-2 d-none d-sm-block">
+                            <div class="col-md-1 col-lg-2 col-xl-2 d-none d-md-block">
                                 <a href="{{route('strats.like',['id' => $tactic->id])}}">
                                     <p style="text-align: right">&#128151</p>
                                 </a>
                             </div>
-                            <div class="col-md-1 col-lg-1 col-xl-1 d-none d-sm-block">
+                            <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block">
                                 <p style="text-align: center">{{count($tactic->likes)}}</p>
                             </div>
                         </div>

@@ -6,6 +6,9 @@ use App\Models\Like;
 use App\Models\Map;
 use App\Models\Tactic;
 use Illuminate\Http\Request;
+use Spatie\QueryBuilder\AllowedSort;
+use Spatie\QueryBuilder\QueryBuilder;
+
 
 class TacticController extends Controller
 {
@@ -42,7 +45,19 @@ class TacticController extends Controller
 
     public function show(){
 
-        $tactics = Tactic::orderBy('updated_at')->with('likes','map','nades')->paginate(5);
+        //$tactics = Tactic::orderBy('updated_at')->with('likes','map','nades')->paginate(5);
+
+        $tactics = QueryBuilder::for(Tactic::class)
+            //->with('likes')
+            ->with('map')
+            ->with('nades')
+            ->with('likes')
+            ->withCount('likes')
+            ->defaultSort('updated_at')
+            ->allowedSorts('updated_at','likes_count')
+            ->allowedFilters(['id'])
+            ->paginate(1);
+
         return view('content.strats.viewStrats',['tactics' => $tactics]);
     }
 
